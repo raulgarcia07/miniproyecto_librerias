@@ -13,16 +13,11 @@ from pydub import AudioSegment
 from pydub.playback import play 
 
 
-def detect_sepator():
-    file_separator = "/"
-    if os.name == "nt":
-        file_separator = "\\"
-    return file_separator
 
 
 def backup(path_to_copy, excluded_extension, verbose, log_path):
 
-    file_separator = detect_sepator()
+
     create_log(log_path)
     log_config(log_path)
     weekday_folder = day_of_the_week()
@@ -40,8 +35,8 @@ def backup(path_to_copy, excluded_extension, verbose, log_path):
             time.sleep(0.25)
             _ , ext = os.path.splitext(file)
 
-            path_file_source = path_to_copy + file_separator + file
-            path_file_dest = weekday_folder + file_separator + file
+            path_file_source = path_to_copy + "/"+ file
+            path_file_dest = weekday_folder + "/" + file
 
             if os.path.isfile(path_file_source) and ext not in set_excluded_extensions:
                 shutil.copyfile(path_file_source, path_file_dest)
@@ -100,8 +95,11 @@ def create_log(file):
         sys.exit()
     
     try:
-        open(file, 'a').close()
-
+        if len(file.strip()) > 0 :
+            open(file, 'a').close()
+        else:
+            raise IOError
+        
     except IOError:
         print("Failed open the log, the log does not have name")
         sys.exit()
