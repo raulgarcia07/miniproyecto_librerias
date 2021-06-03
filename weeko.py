@@ -13,10 +13,7 @@ from pydub import AudioSegment
 from pydub.playback import play 
 
 
-
-
 def backup(path_to_copy, excluded_extension, verbose, log_path):
-
 
     create_log(log_path)
     log_config(log_path)
