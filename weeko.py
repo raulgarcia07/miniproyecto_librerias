@@ -14,7 +14,6 @@ from pydub.playback import play
 
 
 def backup(path_to_copy, excluded_extension, verbose, log_path):
-
     create_log(log_path)
     log_config(log_path)
     weekday_folder = day_of_the_week()
@@ -98,7 +97,7 @@ def create_log(file):
             raise IOError
         
     except IOError:
-        print("Failed open the log, the log does not have name")
+        print("Failed open the log, the log does not have name or is not accessible")
         sys.exit()
 
 
