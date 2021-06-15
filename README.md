@@ -29,7 +29,7 @@ pip install -r requirements.txt
 
 ```
 
-## HOW THE SCRIPT WORK:
+## HOW THE SCRIPT WORKS:
 
 The script creates a copy of the files in the path that is written. The program will create the folder that corresponds to the day of the week and a log file if they are not created. All records will be saved in the log file.
 During the copying process a progress bar is displayed and when copying is finished it will sound a tone.
