@@ -14,7 +14,7 @@ from pydub.playback import play
 
 
 def day_of_the_week():
-    weekDays = ("lunes", "martes", "miercoles", "jueves", "viernes", "sabado", "domingo")
+    weekDays = ("monday", "tuesday", "wednesday", "thursday", "friday", "saturday", "sunday")
     day_number = date.today().weekday()
     return weekDays[day_number]
 
@@ -77,13 +77,11 @@ def create_log(filelog):
         sys.exit()   
 
 
-
-
 def backup(path_to_copy, excluded_extension, verbose, log_path, subfolder):
     create_log(log_path)
     log_config(log_path)
     weekday_folder = day_of_the_week()
-    check_folder(weekday_folder)
+    
     
     list_excluded_extensions = []
     # This if is written because , if it is written default="" in the argparse argument it excludes files without extension by default
